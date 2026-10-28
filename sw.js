@@ -1,5 +1,5 @@
 /* Fermata service worker. Versión de caché inyectada por build.py. */
-const VERSION = '5ae6d4178d';
+const VERSION = '8a14ee3324';
 const CACHE = 'fermata-app-' + VERSION;      // se limpia en cada versión nueva
 const FONTS = 'fermata-fonts';               // persistente: solo la hoja CSS de Google Fonts
 const PRECACHE = [
