@@ -295,7 +295,7 @@ input[type=range]{direction:ltr}.cb{white-space:nowrap}
 }
 </style>
 <link rel="manifest" href="manifest.webmanifest">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-ajRJFRWzJd09cd1ql+ENzubY2Yq7kzYe9+R4VUnHSD0=' 'sha256-HzExUbnTZNt8AOXLdXRl5ciRwIkkuWnvnxi3KGqYuEE='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; media-src 'self'; worker-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-gEYCRCk0KAET9ovtGuTtuGgPT8NYxSiBhebfOzk53LY=' 'sha256-HzExUbnTZNt8AOXLdXRl5ciRwIkkuWnvnxi3KGqYuEE='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; media-src 'self'; worker-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute"><filter id="clay" x="-15%" y="-25%" width="130%" height="150%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".04 .055" numOctaves="3" seed="5" result="n"/><feDiffuseLighting in="n" surfaceScale="2.4" diffuseConstant="1.25" lighting-color="#ffffff" result="l"><feDistantLight azimuth="225" elevation="58"/></feDiffuseLighting><feComposite in="l" in2="SourceAlpha" operator="in" result="lm"/><feBlend in="SourceGraphic" in2="lm" mode="multiply" result="b"/><feComponentTransfer in="b"><feFuncR type="linear" slope="1.12"/><feFuncG type="linear" slope="1.12"/><feFuncB type="linear" slope="1.12"/></feComponentTransfer></filter><filter id="boil" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".025" numOctaves="2" seed="1" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
@@ -1378,7 +1378,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDlg(false);if(
 async function clearData(){
 if(!await askDlg(t("¿Borrar tus datos?"),t("Se borrarán de este dispositivo tus MIDIs guardados y tus preferencias. Las canciones incluidas no se tocan. No se puede deshacer."),t("Sí, borrar"),t("Cancelar"),true))return;
 let bad=false;try{await DB.tx('readwrite',x=>x.clear())}catch(e){if(dbBad)bad=true}
-for(const k of ['mcol','mrep','mfall','msens','mlang','mhdr','mhero','mdiff','minstr','mkbstyle']){try{localStorage.removeItem(k)}catch(e){bad=true}}
+for(const k of ['mcol','mrep','mfall','msens','mlang','mhdr','mhero','mdiff','minstr','mkbstyle','mherocal','mherocalhinted','mkbzoomhinted','mherodebug']){try{localStorage.removeItem(k)}catch(e){bad=true}}
 if(bad){msg(t("No se pudieron borrar todos los datos"),4000);return}
 msg(t("Datos borrados"));setTimeout(()=>{try{location.reload()}catch(e){}},900)}
 document.querySelectorAll('.clrb').forEach(b=>b.onclick=clearData);
